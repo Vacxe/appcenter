@@ -22,7 +22,7 @@ BUILD_VERSION="${9}"
 PARAMETERS="${10}"
 
 echo "AppCenter version:"
-appcenter version
+appcenter --version
 
 checkParameter "AppCenter Access Token" "$APPCENTER_TOKEN"
 export APPCENTER_ACCESS_TOKEN="$APPCENTER_TOKEN"

@@ -14,7 +14,7 @@ ghcr.io/vacxe/appcenter:<VERSION>
 
 ### [GitHub Action](https://github.com/marketplace/actions/appcenter)
 
-[GitHub Action](https://github.com/marketplace/actions/appcenter) `vacxe/appcenter` is transparent wrapper over [Docker](https://github.com/Vacxe/appcenter/pkgs/container/appcenter) `appcenter`, what contains transparent CLI warapper for AppCenter node library. It can provide for you possibility to write any custom scripts in depends on you needs.
+[GitHub Action](https://github.com/marketplace/actions/appcenter-ms) `vacxe/appcenter` is transparent wrapper over [Docker](https://github.com/Vacxe/appcenter/pkgs/container/appcenter) `appcenter`, what contains transparent CLI warapper for AppCenter Node library. It can provide for you possibility to write any custom scripts in depends on you needs.
 
 *Example of file distribution template:*
 ```yaml

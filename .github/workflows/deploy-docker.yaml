@@ -1,0 +1,28 @@
+name: Deploy Docker
+on:
+  workflow_dispatch :
+
+jobs:
+  docker-build-push:
+    name: Build and Push Docker image
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker Login
+        run: echo $PACKAGES_WRITE_TOKEN | docker login ghcr.io -u $USERNAME --password-stdin
+        env:
+          PACKAGES_WRITE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.actor }}
+
+      - name: Docker Build
+        run: docker build -t ghcr.io/vacxe/appcenter:$VERSION .
+        env:
+          VERSION: ${{ github.run_number }}
+
+      - name: Deploy
+        run: docker push ghcr.io/vacxe/appcenter:$VERSION
+        env:
+          VERSION: ${{ github.run_number }}

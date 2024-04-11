@@ -1,0 +1,55 @@
+name: 'appcenter-ms'
+description: 'Transparent AppCenter CLI wrapper for Github Action'
+author: 'Konstantin Aksenov'
+branding:
+  icon: 'upload'
+  color: 'blue'
+inputs:
+  token:
+    description: 'AppCenter access token'
+    required: true
+  template:
+    description: 'Template name, see documentation for available options'
+    default: "custom-script"
+    required: false
+  custom-script:
+    description: 'Custom script content'
+    required: false
+  file:
+    description: 'File path'
+    required: false
+  app:
+    description: 'Distribution app name'
+    required: false
+  group:
+    description: 'Tester group name'
+    required: false
+    default: 'internal'
+  release-notes-file:
+    description: 'Release notes file path'
+    required: false
+  output:
+    description: 'Output format'
+    required: false
+    default: 'json'
+  build-version:
+    description: 'Build version parameter required for .zip, .msi, .pkg and .dmg files'
+    required: false
+  parameters:
+    description: 'Parameters for command'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'github-action/Dockerfile'
+  args:
+    - ${{ inputs.token }}
+    - ${{ inputs.template }}
+    - ${{ inputs.custom-script }}
+    - ${{ inputs.file }}
+    - ${{ inputs.app }}
+    - ${{ inputs.group }}
+    - ${{ inputs.release-notes-file }}
+    - ${{ inputs.output }}
+    - ${{ inputs.build-version }}
+    - ${{ inputs.parameters }}

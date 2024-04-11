@@ -22,8 +22,16 @@ ghcr.io/vacxe/appcenter:<VERSION>
   with:
     template: distribute-release
     token: ${{ secrets.TOKEN }}
+    file: "path/to/file"
     app: "my-app-name"
     group: "tester-group"
+```
+*Example of file distribution via custom script:*
+```yaml
+- uses: vacxe/appcenter@master
+  with:
+    token: ${{ secrets.TOKEN }}
+    custom-script: 'appcenter distribute release --file "path/to/file" --app "my-app-name" --group "tester-group" --output json
 ```
 
 ## License

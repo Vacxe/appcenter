@@ -1,4 +1,7 @@
 # AppCenter GitHub Action
+
+**Visual Studio App Center is scheduled for retirement on March 31, 2025**
+
 ## Table of Contents
 
 - [Installation](#installation)

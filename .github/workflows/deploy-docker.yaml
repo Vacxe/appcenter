@@ -1,6 +1,9 @@
 name: Deploy Docker
 on:
   workflow_dispatch :
+    inputs:
+      version:
+        description: "Version code"
 
 jobs:
   docker-build-push:
@@ -20,9 +23,9 @@ jobs:
       - name: Docker Build
         run: docker build -t ghcr.io/vacxe/appcenter:$VERSION .
         env:
-          VERSION: ${{ github.run_number }}
+          VERSION: ${{ github.event.inputs.version }}
 
       - name: Deploy
         run: docker push ghcr.io/vacxe/appcenter:$VERSION
         env:
-          VERSION: ${{ github.run_number }}
+          VERSION: ${{ github.event.inputs.version }}

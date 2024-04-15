@@ -1,8 +1,9 @@
 name: Deploy Docker
 on:
   workflow_dispatch :
-    version:
-      description: "Version code"
+    inputs:
+      version:
+        description: "Version code"
 
 jobs:
   docker-build-push:

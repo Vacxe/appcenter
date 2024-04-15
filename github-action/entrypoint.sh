@@ -2,7 +2,7 @@
 
 set -e
 
-function checkParameter {
+function checkParameter() {
 if [ -z "$2" ]
 then
   echo "$1 is required, but not provided"
